@@ -22,7 +22,7 @@ public class StorageService {
         try(var input = file.getInputStream()){
            store.put(id,input);
         }
-    }            // ok wait for one second
+    }
 
     public Resource get(UUID id){
         return store.get(id);

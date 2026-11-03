@@ -14,8 +14,8 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 
-@Repository  // Making the class as the repository not using the jpa
-public class DataStore {  // this will store my files , images as objects
+@Repository
+public class DataStore {
 
     private final Path root;
 
@@ -34,7 +34,7 @@ public class DataStore {  // this will store my files , images as objects
             Files.move(temporary,root.resolve(id.toString()),StandardCopyOption.REPLACE_EXISTING);
         }
         finally{
-            Files.deleteIfExists(temporary);   /// First put them into temp then into the  root and delete Temporary
+            Files.deleteIfExists(temporary);
     }
 
     }
