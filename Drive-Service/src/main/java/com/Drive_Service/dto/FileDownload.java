@@ -12,7 +12,7 @@ public record FileDownload(String name, long size, Response response) implements
        try(this; var input = response.body().asInputStream())
        {
           input.transferTo(outputStream);
-       } // Because of the AutoCloseable no need to write the catch block it will handle the Exception
+       }
        catch (IOException e) {
            throw new RuntimeException(e);
        } catch (Exception e) {

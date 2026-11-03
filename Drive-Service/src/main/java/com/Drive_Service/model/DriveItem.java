@@ -18,14 +18,14 @@ public class DriveItem {
     @Column(nullable = false)
     private String name;
 
-    private UUID parentId;         //File must be inside any parent folder can be  null because the folder
-    // can be inside the root also without any parent folder
+    private UUID parentId;
+
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Kind kind;
 
-    @Enumerated(EnumType.STRING)      //   tells JPA to store the enum as text.
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Status status;
 
@@ -34,15 +34,14 @@ public class DriveItem {
     private String mediaType;
 
     @Column(nullable = false)
-    private Instant createdAt;       // At what time the file was created
+    private Instant createdAt;
 
 
     @Version
-    private Long version;            // If changes made in the file then to maintain the version
-    // Say two users rename or move the same file at the same moment.
-    // Without @Version, the second save silently overwrites the first
+    private Long version;
 
-    protected DriveItem(){}      // Jpa requires the No arg constructor
+
+    protected DriveItem(){}
 
     public DriveItem(String name, UUID parentId, Kind kind, long size, String mediaType){
         this.id = UUID.randomUUID();
